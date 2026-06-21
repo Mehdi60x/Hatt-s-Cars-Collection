@@ -177,9 +177,6 @@ const detailBookBtn = document.querySelector('.detail-book');
 function setMainImage(imgEl) {
     detailMainImg.src = imgEl.src;
     detailMainImg.alt = imgEl.alt;
-    detailMainImg.className = '';
-    if (imgEl.classList.contains('crop-zoom')) detailMainImg.classList.add('crop-zoom');
-    if (imgEl.classList.contains('crop-pan')) detailMainImg.classList.add('crop-pan');
 }
 
 function openDetail(card) {
