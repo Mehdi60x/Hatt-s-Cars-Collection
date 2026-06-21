@@ -261,3 +261,20 @@ newsletterForm.addEventListener('submit', (e) => {
     newsletterForm.reset();
     showToast('Merci pour votre inscription à la newsletter !');
 });
+
+/* ============ Fleet card tilt ============ */
+
+document.querySelectorAll('.box.open-detail').forEach(card => {
+    const img = card.querySelector('.box-img img');
+
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        img.style.transform = `scale(1.08) rotateX(${(-y * 10).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        img.style.transform = '';
+    });
+});
