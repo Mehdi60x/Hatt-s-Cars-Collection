@@ -118,9 +118,42 @@ img {
     pointer-events: none;
 }
 
-.preloader-logo {
-    width: 48px;
-    filter: invert(1) brightness(2);
+.brand-mark {
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    transition: transform .4s var(--ease);
+}
+
+.brand-mark-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.brand-hex {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 1.8;
+}
+
+.brand-accent {
+    stroke: var(--gold);
+    stroke-width: 1;
+    opacity: .55;
+}
+
+.brand-letter {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 25px;
+    fill: var(--gold);
+}
+
+.brand-mark--preloader {
+    width: 58px;
+    height: 58px;
     animation: pulse 1.4s ease-in-out infinite;
 }
 
@@ -281,15 +314,34 @@ nav .navigation a {
 .logo {
     display: flex;
     align-items: center;
+    gap: .7rem;
 }
 
-.logo img {
-    width: 46px;
-    transition: transform .4s var(--ease);
-}
-
-.logo:hover img {
+.logo:hover .brand-mark {
     transform: rotate(-8deg) scale(1.08);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--text);
+    letter-spacing: .3px;
+}
+
+.brand-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: .55rem;
+    font-weight: 600;
+    letter-spacing: 2.4px;
+    color: var(--gold);
+    text-transform: uppercase;
 }
 
 nav .navigation a::before {
@@ -765,6 +817,9 @@ nav .navigation a.active::after {
 }
 
 .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
     padding: 9px 20px;
     border-radius: 50px;
     background: var(--bg);
@@ -774,6 +829,18 @@ nav .navigation a.active::after {
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, .08);
     transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
+}
+
+.filter-chip .bx {
+    font-size: 1.05rem;
+}
+
+.results-count {
+    text-align: center;
+    color: var(--muted);
+    font-size: .85rem;
+    margin: -1rem auto 2rem;
+    max-width: 1180px;
 }
 
 .filter-chip:hover {
@@ -789,7 +856,9 @@ nav .navigation a.active::after {
 }
 
 .box.filtered-out {
-    display: none;
+    opacity: 0;
+    transform: scale(.92);
+    pointer-events: none;
 }
 
 .services-container {
@@ -811,7 +880,7 @@ nav .navigation a.active::after {
     border-radius: var(--radius);
     position: relative;
     overflow: hidden;
-    transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease), opacity .28s var(--ease);
     box-shadow: var(--shadow-sm);
 }
 
@@ -848,9 +917,49 @@ nav .navigation a.active::after {
 .box .box-img::before {
     content: "";
     position: absolute;
-    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     background: linear-gradient(180deg, rgba(8, 8, 10, .05) 0%, rgba(8, 8, 10, .15) 45%, rgba(8, 8, 10, .88) 100%);
     pointer-events: none;
+}
+
+.box:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.discover-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    padding: 11px 22px;
+    border-radius: 50px;
+    background: rgba(8, 8, 10, .55);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, .25);
+    color: var(--text-light);
+    font-size: .85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.85);
+    transition: opacity .3s var(--ease), transform .3s var(--ease);
+    pointer-events: none;
+}
+
+.discover-hint .bx {
+    color: var(--gold-light);
+    font-size: 1.05rem;
+}
+
+.box:hover .discover-hint,
+.box:focus-visible .discover-hint {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .favorite-btn {
@@ -886,6 +995,9 @@ nav .navigation a.active::after {
     position: absolute;
     top: 18px;
     left: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
     background: var(--gold);
     color: var(--bg);
     font-size: .72rem;
@@ -895,6 +1007,24 @@ nav .navigation a.active::after {
     padding: 5px 12px;
     border-radius: 50px;
     z-index: 2;
+}
+
+.box .badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--bg);
+    opacity: .85;
+}
+
+.box .badge.badge-available::before {
+    animation: badgePulse 1.6s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { opacity: .5; transform: scale(.85); }
+    50% { opacity: 1; transform: scale(1.15); }
 }
 
 .box-info {
@@ -1352,11 +1482,10 @@ footer {
     background: var(--dark);
 }
 
-.logoh {
-    width: 38px;
-    height: 38px;
-    filter: invert(1) brightness(2);
-    margin-bottom: .5rem;
+.brand-mark--footer {
+    width: 40px;
+    height: 40px;
+    margin-bottom: .6rem;
 }
 
 footer .social {

@@ -267,7 +267,23 @@ function closeDetail() {
 }
 
 document.querySelectorAll('.box.open-detail').forEach(card => {
+    const carName = card.querySelector('.box-info h4')?.textContent || 'ce véhicule';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `Découvrir ${carName}`);
+
+    const hint = document.createElement('span');
+    hint.className = 'discover-hint';
+    hint.innerHTML = "<i class='bx bx-show'></i> Découvrir le véhicule";
+    card.querySelector('.box-img').appendChild(hint);
+
     card.addEventListener('click', () => openDetail(card));
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openDetail(card);
+        }
+    });
 });
 
 detailClose.addEventListener('click', closeDetail);
@@ -327,16 +343,37 @@ document.querySelectorAll('.box.open-detail').forEach(card => {
 
 const filterChips = document.querySelectorAll('.filter-chip');
 const fleetCards = document.querySelectorAll('.services-container .box');
+const resultsCount = document.querySelector('.results-count');
+
+function applyFilter(filter) {
+    let visible = 0;
+    fleetCards.forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        if (match) {
+            visible++;
+            card.style.display = '';
+            requestAnimationFrame(() => card.classList.remove('filtered-out'));
+        } else {
+            card.classList.add('filtered-out');
+            setTimeout(() => {
+                if (card.classList.contains('filtered-out')) card.style.display = 'none';
+            }, 280);
+        }
+    });
+    if (resultsCount) {
+        resultsCount.textContent = `${visible} véhicule${visible === 1 ? '' : 's'} disponible${visible === 1 ? '' : 's'}`;
+    }
+}
 
 filterChips.forEach(chip => {
     chip.addEventListener('click', () => {
-        filterChips.forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        const filter = chip.dataset.filter;
-        fleetCards.forEach(card => {
-            const match = filter === 'all' || card.dataset.category === filter;
-            card.classList.toggle('filtered-out', !match);
+        filterChips.forEach(c => {
+            c.classList.remove('active');
+            c.setAttribute('aria-pressed', 'false');
         });
+        chip.classList.add('active');
+        chip.setAttribute('aria-pressed', 'true');
+        applyFilter(chip.dataset.filter);
     });
 });
 

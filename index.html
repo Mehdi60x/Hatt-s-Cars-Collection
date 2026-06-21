@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hatt's Prestige Cars - Location de véhicules de luxe à Paris. BMW, Mercedes-AMG, Audi RS, Ferrari, Porsche et Aston Martin disponibles à la location.">
-    <link rel="icon" href="Assets/img/White Modern Minimalist Signature Brand Logo-2.png">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d0d0f'/%3E%3Cpolygon points='32,7 55,20 55,44 32,57 9,44 9,20' fill='none' stroke='%23c9a063' stroke-width='2.5'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='26' fill='%23c9a063'%3EH%3C/text%3E%3C/svg%3E">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,13 +18,33 @@
 
     <!-- Preloader -->
     <div class="preloader" id="preloader">
-        <img src="Assets/img/White Modern Minimalist Signature Brand Logo-2.png" alt="" class="preloader-logo">
+        <span class="brand-mark brand-mark--preloader" aria-hidden="true">
+            <svg viewBox="0 0 64 64" class="brand-mark-svg">
+                <polygon points="32,4 58,19 58,45 32,60 6,45 6,19" class="brand-hex"></polygon>
+                <line x1="19" y1="23" x2="45" y2="23" class="brand-accent"></line>
+                <line x1="19" y1="41" x2="45" y2="41" class="brand-accent"></line>
+                <text x="32" y="40" text-anchor="middle" class="brand-letter">H</text>
+            </svg>
+        </span>
         <div class="preloader-ring"></div>
     </div>
 
     <!-- Navigation -->
     <nav class="active">
-        <a href="#home" class="logo"><img src="Assets/img/White Modern Minimalist Signature Brand Logo-2.png" alt="Hatt's Prestige Cars"></a>
+        <a href="#home" class="logo">
+            <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 64 64" class="brand-mark-svg">
+                    <polygon points="32,4 58,19 58,45 32,60 6,45 6,19" class="brand-hex"></polygon>
+                    <line x1="19" y1="23" x2="45" y2="23" class="brand-accent"></line>
+                    <line x1="19" y1="41" x2="45" y2="41" class="brand-accent"></line>
+                    <text x="32" y="40" text-anchor="middle" class="brand-letter">H</text>
+                </svg>
+            </span>
+            <span class="brand-text">
+                <span class="brand-name">Hatt's</span>
+                <span class="brand-sub">Prestige Cars</span>
+            </span>
+        </a>
         <ul class="navigation">
             <li><a href="#home" class="active">Accueil</a></li>
             <li><a href="#cars">Comment ça marche</a></li>
@@ -124,15 +144,16 @@
             <span>Nos prestations</span>
             <h2>Découvrez les meilleures offres !</h2>
         </div>
-        <div class="filter-bar reveal">
-            <button class="filter-chip active" data-filter="all">Toutes</button>
-            <button class="filter-chip" data-filter="berline">Berlines</button>
-            <button class="filter-chip" data-filter="break">Break</button>
-            <button class="filter-chip" data-filter="cabriolet">Cabriolet</button>
-            <button class="filter-chip" data-filter="coupe">Coupé GT</button>
-            <button class="filter-chip" data-filter="limousine">Limousine</button>
-            <button class="filter-chip" data-filter="suv">SUV</button>
+        <div class="filter-bar reveal" role="group" aria-label="Filtrer la flotte par catégorie">
+            <button class="filter-chip active" data-filter="all" aria-pressed="true"><i class='bx bx-grid-alt'></i> Toutes</button>
+            <button class="filter-chip" data-filter="berline" aria-pressed="false"><i class='bx bx-car'></i> Berlines</button>
+            <button class="filter-chip" data-filter="break" aria-pressed="false"><i class='bx bx-shape-square'></i> Break</button>
+            <button class="filter-chip" data-filter="cabriolet" aria-pressed="false"><i class='bx bx-sun'></i> Cabriolet</button>
+            <button class="filter-chip" data-filter="coupe" aria-pressed="false"><i class='bx bx-trip'></i> Coupé GT</button>
+            <button class="filter-chip" data-filter="limousine" aria-pressed="false"><i class='bx bx-crown'></i> Limousine</button>
+            <button class="filter-chip" data-filter="suv" aria-pressed="false"><i class='bx bx-mountain'></i> SUV</button>
         </div>
+        <p class="results-count reveal" aria-live="polite">9 véhicules disponibles</p>
         <div class="services-container">
 
             <div class="box reveal open-detail featured" data-category="coupe">
@@ -171,9 +192,9 @@
             </div>
 
             <div class="box reveal open-detail" data-category="berline">
-                <span class="badge">Disponible</span>
+                <span class="badge badge-available">Disponible</span>
                 <div class="box-img">
-                    <img src="Assets/img/bmwM3-v2-main.jpeg" alt="BMW M3" loading="lazy">
+                    <img src="Assets/img/bmwM3-g80-main.jpeg" alt="BMW M3" loading="lazy">
                     <button class="favorite-btn" data-car="BMW M3" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
                     <div class="box-info">
                         <p>2023</p>
@@ -198,17 +219,18 @@
                         <li><i class='bx bx-check'></i> Sièges cuir chauffants</li>
                     </ul>
                     <div class="gallery-imgs">
-                        <img src="Assets/img/bmwM3-v2-main.jpeg" alt="BMW M3 - vue extérieure avant">
-                        <img src="Assets/img/bmwM3-v2-side.jpeg" alt="BMW M3 - profil">
-                        <img src="Assets/img/bmwM3-v2-side2.jpeg" alt="BMW M3 - profil, vue rapprochée">
+                        <img src="Assets/img/bmwM3-g80-main.jpeg" alt="BMW M3 - vue extérieure avant">
+                        <img src="Assets/img/bmwM3-g80-front.jpeg" alt="BMW M3 - vue trois-quarts avant">
+                        <img src="Assets/img/bmwM3-g80-wheel.jpeg" alt="BMW M3 - jante et bas de caisse">
+                        <img src="Assets/img/bmwM3-g80-headlight.jpeg" alt="BMW M3 - détail phare LED">
                     </div>
                 </template>
             </div>
 
             <div class="box reveal open-detail" data-category="berline">
-                <span class="badge">Disponible</span>
+                <span class="badge badge-available">Disponible</span>
                 <div class="box-img">
-                    <img src="Assets/img/amg-v2-main.jpeg" alt="Mercedes-AMG C63 S" loading="lazy">
+                    <img src="Assets/img/amg-w206-main.jpeg" alt="Mercedes-AMG C63 S" loading="lazy">
                     <button class="favorite-btn" data-car="Mercedes-AMG C 63 S" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
                     <div class="box-info">
                         <p>2023</p>
@@ -233,15 +255,13 @@
                         <li><i class='bx bx-check'></i> Sièges cuir chauffants</li>
                     </ul>
                     <div class="gallery-imgs">
-                        <img src="Assets/img/amg-v2-main.jpeg" alt="Mercedes-AMG C 63 S - vue extérieure avant">
-                        <img src="Assets/img/amg-v2-side.jpeg" alt="Mercedes-AMG C 63 S - profil">
-                        <img src="Assets/img/amg-v2-rear.jpeg" alt="Mercedes-AMG C 63 S - vue arrière">
+                        <img src="Assets/img/amg-w206-main.jpeg" alt="Mercedes-AMG C 63 S - vue extérieure avant">
                     </div>
                 </template>
             </div>
 
             <div class="box reveal open-detail" data-category="break">
-                <span class="badge">Disponible</span>
+                <span class="badge badge-available">Disponible</span>
                 <div class="box-img">
                     <img src="Assets/img/rs6.pnj.jpeg" alt="Audi RS6" loading="lazy">
                     <button class="favorite-btn" data-car="Audi RS6" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
@@ -274,7 +294,7 @@
             </div>
 
             <div class="box reveal open-detail" data-category="cabriolet">
-                <span class="badge">Disponible</span>
+                <span class="badge badge-available">Disponible</span>
                 <div class="box-img">
                     <img src="Assets/img/portofino-v2-main.jpeg" alt="Ferrari Portofino" loading="lazy">
                     <button class="favorite-btn" data-car="Ferrari Portofino" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
@@ -308,7 +328,7 @@
             </div>
 
             <div class="box reveal open-detail" data-category="coupe">
-                <span class="badge">Disponible</span>
+                <span class="badge badge-available">Disponible</span>
                 <div class="box-img">
                     <img src="Assets/img/cars911.pnj.webp" alt="Porsche 911 Turbo S" loading="lazy">
                     <button class="favorite-btn" data-car="Porsche 911 Turbo S" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
@@ -342,7 +362,7 @@
             </div>
 
             <div class="box reveal open-detail" data-category="limousine">
-                <span class="badge">Disponible</span>
+                <span class="badge badge-available">Disponible</span>
                 <div class="box-img">
                     <img src="Assets/img/rolls-main.jpeg" alt="Rolls-Royce Ghost" loading="lazy">
                     <button class="favorite-btn" data-car="Rolls-Royce Ghost" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
@@ -378,7 +398,7 @@
             </div>
 
             <div class="box reveal open-detail" data-category="coupe">
-                <span class="badge">Disponible</span>
+                <span class="badge badge-available">Disponible</span>
                 <div class="box-img">
                     <img src="Assets/img/bentley-main.jpeg" alt="Bentley Continental GT" loading="lazy">
                     <button class="favorite-btn" data-car="Bentley Continental GT" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
@@ -414,7 +434,7 @@
             </div>
 
             <div class="box reveal open-detail" data-category="suv">
-                <span class="badge">Disponible</span>
+                <span class="badge badge-available">Disponible</span>
                 <div class="box-img">
                     <img src="Assets/img/urus-v2-main.jpeg" alt="Lamborghini Urus" loading="lazy">
                     <button class="favorite-btn" data-car="Lamborghini Urus" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
@@ -606,7 +626,14 @@
     <footer>
         <div class="footer-box">
             <h2>Suivez-nous</h2>
-            <img src="Assets/img/White Modern Minimalist Signature Brand Logo-2.png" alt="" class="logoh">
+            <span class="brand-mark brand-mark--footer" aria-hidden="true">
+                <svg viewBox="0 0 64 64" class="brand-mark-svg">
+                    <polygon points="32,4 58,19 58,45 32,60 6,45 6,19" class="brand-hex"></polygon>
+                    <line x1="19" y1="23" x2="45" y2="23" class="brand-accent"></line>
+                    <line x1="19" y1="41" x2="45" y2="41" class="brand-accent"></line>
+                    <text x="32" y="40" text-anchor="middle" class="brand-letter">H</text>
+                </svg>
+            </span>
             <div class="social">
                 <i class='bx bxl-meta'></i>
                 <i class='bx bxl-instagram-alt'></i>
