@@ -89,7 +89,10 @@ img {
 
 .preloader {
     position: fixed;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 99999;
     background: var(--dark);
     display: flex;
@@ -191,6 +194,7 @@ nav {
     gap: 1.5rem;
     padding: 18px 60px;
     background: rgba(255, 255, 255, .78);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
     backdrop-filter: blur(16px) saturate(160%);
     transition: box-shadow .35s var(--ease), padding .35s var(--ease), background .35s var(--ease);
     animation: navIn .7s var(--ease);
@@ -367,7 +371,10 @@ nav .navigation a.active::after {
 
 .home-media {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 0;
     overflow: hidden;
 }
@@ -389,7 +396,10 @@ nav .navigation a.active::after {
 
 .home-overlay {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: linear-gradient(100deg, rgba(6, 6, 8, .92) 0%, rgba(6, 6, 8, .72) 32%, rgba(6, 6, 8, .25) 60%, rgba(6, 6, 8, .05) 100%),
                 linear-gradient(0deg, rgba(6, 6, 8, .3) 0%, rgba(6, 6, 8, 0) 22%);
 }
@@ -470,6 +480,7 @@ nav .navigation a.active::after {
     width: 100%;
     max-width: 640px;
     background: rgba(255, 255, 255, .94);
+    -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
     padding: 26px 30px;
     border-radius: var(--radius);
@@ -632,7 +643,10 @@ nav .navigation a.active::after {
 .box.open-detail .box-img::after {
     content: "Découvrir le véhicule";
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -803,6 +817,7 @@ nav .navigation a.active::after {
 .stat-box {
     background: rgba(255, 255, 255, .06);
     border: 1px solid rgba(255, 255, 255, .12);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: var(--radius);
     padding: 1.6rem 1rem;
@@ -1177,8 +1192,12 @@ footer a:hover {
 
 .detail-overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: rgba(8, 8, 10, .7);
+    -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
     display: flex;
     align-items: center;
@@ -1382,8 +1401,12 @@ footer a:hover {
 
 .modal-overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: rgba(10, 10, 12, .6);
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
