@@ -356,13 +356,49 @@ nav .navigation a.active::after {
     width: 100%;
     min-height: 100vh;
     position: relative;
-    background: linear-gradient(180deg, rgba(8, 8, 10, .55), rgba(8, 8, 10, .85)), no-repeat center / cover url(img/porsche-911-sport-classic-14.jpeg);
     display: flex;
     justify-content: center;
     flex-direction: column;
     gap: clamp(2.5rem, 7vw, 5rem);
     color: var(--text-light);
     padding: 140px 100px 100px;
+    overflow: hidden;
+}
+
+.home-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.home-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 78%;
+    transform: scale(1.06);
+    transform-origin: center 78%;
+    animation: kenBurns 20s ease-in-out infinite alternate;
+}
+
+@keyframes kenBurns {
+    from { transform: scale(1.06); }
+    to { transform: scale(1.14); }
+}
+
+.home-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(6, 6, 8, .92) 0%, rgba(6, 6, 8, .72) 32%, rgba(6, 6, 8, .25) 60%, rgba(6, 6, 8, .05) 100%),
+                linear-gradient(0deg, rgba(6, 6, 8, .3) 0%, rgba(6, 6, 8, 0) 22%);
+}
+
+.home-content,
+.home-form,
+.scroll-down {
+    position: relative;
+    z-index: 1;
 }
 
 .eyebrow {
@@ -379,11 +415,11 @@ nav .navigation a.active::after {
 }
 
 .home h1 {
-    font-size: clamp(32px, 5.2vw, 78px);
+    font-size: clamp(32px, 5.2vw, 64px);
     letter-spacing: .5px;
     color: var(--text-light);
     line-height: 1.15;
-    max-width: 950px;
+    max-width: 640px;
 }
 
 .home h1 span {
@@ -422,6 +458,8 @@ nav .navigation a.active::after {
 
 .home-form {
     width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .home-form form {
@@ -429,8 +467,8 @@ nav .navigation a.active::after {
     flex-wrap: wrap;
     align-items: center;
     gap: 1.2rem;
-    max-width: 1040px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 640px;
     background: rgba(255, 255, 255, .94);
     backdrop-filter: blur(16px);
     padding: 26px 30px;
