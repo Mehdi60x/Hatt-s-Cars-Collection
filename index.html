@@ -20,10 +20,17 @@
     <div class="preloader" id="preloader">
         <span class="brand-mark brand-mark--preloader" aria-hidden="true">
             <svg viewBox="0 0 64 64" class="brand-mark-svg">
-                <polygon points="32,4 58,19 58,45 32,60 6,45 6,19" class="brand-hex"></polygon>
-                <line x1="19" y1="23" x2="45" y2="23" class="brand-accent"></line>
-                <line x1="19" y1="41" x2="45" y2="41" class="brand-accent"></line>
-                <text x="32" y="40" text-anchor="middle" class="brand-letter">H</text>
+                <defs>
+                    <linearGradient id="brandGoldPreloader" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#f1e2c2"></stop>
+                        <stop offset="50%" stop-color="#c9a063"></stop>
+                        <stop offset="100%" stop-color="#9c7a44"></stop>
+                    </linearGradient>
+                </defs>
+                <polygon points="32,3 59,19 59,46 32,61 5,46 5,19" class="brand-hex" stroke="url(#brandGoldPreloader)"></polygon>
+                <line x1="18" y1="22.5" x2="46" y2="22.5" class="brand-accent" stroke="url(#brandGoldPreloader)"></line>
+                <line x1="18" y1="41.5" x2="46" y2="41.5" class="brand-accent" stroke="url(#brandGoldPreloader)"></line>
+                <text x="32" y="40" text-anchor="middle" class="brand-letter" fill="url(#brandGoldPreloader)">H</text>
             </svg>
         </span>
         <div class="preloader-ring"></div>
@@ -34,10 +41,17 @@
         <a href="#home" class="logo">
             <span class="brand-mark" aria-hidden="true">
                 <svg viewBox="0 0 64 64" class="brand-mark-svg">
-                    <polygon points="32,4 58,19 58,45 32,60 6,45 6,19" class="brand-hex"></polygon>
-                    <line x1="19" y1="23" x2="45" y2="23" class="brand-accent"></line>
-                    <line x1="19" y1="41" x2="45" y2="41" class="brand-accent"></line>
-                    <text x="32" y="40" text-anchor="middle" class="brand-letter">H</text>
+                    <defs>
+                        <linearGradient id="brandGoldNav" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#f1e2c2"></stop>
+                            <stop offset="50%" stop-color="#c9a063"></stop>
+                            <stop offset="100%" stop-color="#9c7a44"></stop>
+                        </linearGradient>
+                    </defs>
+                    <polygon points="32,3 59,19 59,46 32,61 5,46 5,19" class="brand-hex" stroke="url(#brandGoldNav)"></polygon>
+                    <line x1="18" y1="22.5" x2="46" y2="22.5" class="brand-accent" stroke="url(#brandGoldNav)"></line>
+                    <line x1="18" y1="41.5" x2="46" y2="41.5" class="brand-accent" stroke="url(#brandGoldNav)"></line>
+                    <text x="32" y="40" text-anchor="middle" class="brand-letter" fill="url(#brandGoldNav)">H</text>
                 </svg>
             </span>
             <span class="brand-text">
@@ -194,7 +208,7 @@
             <div class="box reveal open-detail" data-category="berline">
                 <span class="badge badge-available">Disponible</span>
                 <div class="box-img">
-                    <img src="Assets/img/bmwM3-g80-main.jpeg" alt="BMW M3" loading="lazy">
+                    <img src="Assets/img/bmwM3-g80-bright.jpeg" alt="BMW M3" loading="lazy">
                     <button class="favorite-btn" data-car="BMW M3" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
                     <div class="box-info">
                         <p>2023</p>
@@ -219,7 +233,7 @@
                         <li><i class='bx bx-check'></i> Sièges cuir chauffants</li>
                     </ul>
                     <div class="gallery-imgs">
-                        <img src="Assets/img/bmwM3-g80-main.jpeg" alt="BMW M3 - vue extérieure avant">
+                        <img src="Assets/img/bmwM3-g80-bright.jpeg" alt="BMW M3 - vue extérieure avant">
                         <img src="Assets/img/bmwM3-g80-front.jpeg" alt="BMW M3 - vue trois-quarts avant">
                         <img src="Assets/img/bmwM3-g80-wheel.jpeg" alt="BMW M3 - jante et bas de caisse">
                         <img src="Assets/img/bmwM3-g80-headlight.jpeg" alt="BMW M3 - détail phare LED">
@@ -230,7 +244,7 @@
             <div class="box reveal open-detail" data-category="berline">
                 <span class="badge badge-available">Disponible</span>
                 <div class="box-img">
-                    <img src="Assets/img/amg-w206-main.jpeg" alt="Mercedes-AMG C63 S" loading="lazy">
+                    <img src="Assets/img/amg-w205-main.jpeg" alt="Mercedes-AMG C63 S" loading="lazy">
                     <button class="favorite-btn" data-car="Mercedes-AMG C 63 S" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
                     <div class="box-info">
                         <p>2023</p>
@@ -255,7 +269,8 @@
                         <li><i class='bx bx-check'></i> Sièges cuir chauffants</li>
                     </ul>
                     <div class="gallery-imgs">
-                        <img src="Assets/img/amg-w206-main.jpeg" alt="Mercedes-AMG C 63 S - vue extérieure avant">
+                        <img src="Assets/img/amg-w205-main.jpeg" alt="Mercedes-AMG C 63 S - vue extérieure avant">
+                        <img src="Assets/img/amg-w205-side.jpeg" alt="Mercedes-AMG C 63 S - profil">
                     </div>
                 </template>
             </div>
@@ -628,10 +643,17 @@
             <h2>Suivez-nous</h2>
             <span class="brand-mark brand-mark--footer" aria-hidden="true">
                 <svg viewBox="0 0 64 64" class="brand-mark-svg">
-                    <polygon points="32,4 58,19 58,45 32,60 6,45 6,19" class="brand-hex"></polygon>
-                    <line x1="19" y1="23" x2="45" y2="23" class="brand-accent"></line>
-                    <line x1="19" y1="41" x2="45" y2="41" class="brand-accent"></line>
-                    <text x="32" y="40" text-anchor="middle" class="brand-letter">H</text>
+                    <defs>
+                        <linearGradient id="brandGoldFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#f1e2c2"></stop>
+                            <stop offset="50%" stop-color="#c9a063"></stop>
+                            <stop offset="100%" stop-color="#9c7a44"></stop>
+                        </linearGradient>
+                    </defs>
+                    <polygon points="32,3 59,19 59,46 32,61 5,46 5,19" class="brand-hex" stroke="url(#brandGoldFooter)"></polygon>
+                    <line x1="18" y1="22.5" x2="46" y2="22.5" class="brand-accent" stroke="url(#brandGoldFooter)"></line>
+                    <line x1="18" y1="41.5" x2="46" y2="41.5" class="brand-accent" stroke="url(#brandGoldFooter)"></line>
+                    <text x="32" y="40" text-anchor="middle" class="brand-letter" fill="url(#brandGoldFooter)">H</text>
                 </svg>
             </span>
             <div class="social">

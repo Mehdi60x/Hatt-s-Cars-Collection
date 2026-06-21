@@ -120,8 +120,8 @@ img {
 
 .brand-mark {
     display: inline-block;
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 46px;
     flex-shrink: 0;
     transition: transform .4s var(--ease);
 }
@@ -324,24 +324,31 @@ nav .navigation a {
 .brand-text {
     display: flex;
     flex-direction: column;
-    line-height: 1.05;
+    line-height: 1.1;
+    padding-left: .15rem;
+    border-left: 1px solid rgba(201, 160, 99, .35);
 }
 
 .brand-name {
     font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.3rem;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 1.45rem;
     color: var(--text);
-    letter-spacing: .3px;
+    letter-spacing: .4px;
+    padding-left: .55rem;
 }
 
 .brand-sub {
     font-family: 'Inter', sans-serif;
-    font-size: .55rem;
+    font-size: .56rem;
     font-weight: 600;
-    letter-spacing: 2.4px;
+    letter-spacing: 3px;
     color: var(--gold);
     text-transform: uppercase;
+    padding-left: .55rem;
+    margin-top: .15rem;
+    position: relative;
 }
 
 nav .navigation a::before {
