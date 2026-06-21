@@ -124,12 +124,22 @@
             <span>Nos prestations</span>
             <h2>Découvrez les meilleures offres !</h2>
         </div>
+        <div class="filter-bar reveal">
+            <button class="filter-chip active" data-filter="all">Toutes</button>
+            <button class="filter-chip" data-filter="berline">Berlines</button>
+            <button class="filter-chip" data-filter="break">Break</button>
+            <button class="filter-chip" data-filter="cabriolet">Cabriolet</button>
+            <button class="filter-chip" data-filter="coupe">Coupé GT</button>
+            <button class="filter-chip" data-filter="limousine">Limousine</button>
+            <button class="filter-chip" data-filter="suv">SUV</button>
+        </div>
         <div class="services-container">
 
-            <div class="box reveal open-detail featured">
+            <div class="box reveal open-detail featured" data-category="coupe">
                 <span class="badge">Modèle phare</span>
                 <div class="box-img">
                     <img src="Assets/img/car 4aston.pnj.jpeg" alt="Aston Martin DB12" loading="lazy">
+                    <button class="favorite-btn" data-car="Aston Martin DB12" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
                     <div class="box-info">
                         <p>2023</p>
                         <h4>Aston Martin DB12</h4>
@@ -161,10 +171,11 @@
                 </template>
             </div>
 
-            <div class="box reveal open-detail">
+            <div class="box reveal open-detail" data-category="berline">
                 <span class="badge">Disponible</span>
                 <div class="box-img">
                     <img src="Assets/img/bmwM3.pnj.jpeg" alt="BMW M3" loading="lazy">
+                    <button class="favorite-btn" data-car="BMW M3" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
                     <div class="box-info">
                         <p>2023</p>
                         <h4>BMW M3</h4>
@@ -195,10 +206,11 @@
                 </template>
             </div>
 
-            <div class="box reveal open-detail">
+            <div class="box reveal open-detail" data-category="berline">
                 <span class="badge">Disponible</span>
                 <div class="box-img">
                     <img src="Assets/img/amg.pnj.jpeg" alt="Mercedes-AMG C63 S" loading="lazy">
+                    <button class="favorite-btn" data-car="Mercedes-AMG C 63 S" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
                     <div class="box-info">
                         <p>2023</p>
                         <h4>C 63 S AMG</h4>
@@ -229,10 +241,11 @@
                 </template>
             </div>
 
-            <div class="box reveal open-detail">
+            <div class="box reveal open-detail" data-category="break">
                 <span class="badge">Disponible</span>
                 <div class="box-img">
                     <img src="Assets/img/rs6.pnj.jpeg" alt="Audi RS6" loading="lazy">
+                    <button class="favorite-btn" data-car="Audi RS6" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
                     <div class="box-info">
                         <p>2023</p>
                         <h4>Audi RS6</h4>
@@ -263,10 +276,11 @@
                 </template>
             </div>
 
-            <div class="box reveal open-detail">
+            <div class="box reveal open-detail" data-category="cabriolet">
                 <span class="badge">Disponible</span>
                 <div class="box-img">
                     <img src="Assets/img/ffportofino.pnj.jpeg" alt="Ferrari Portofino" loading="lazy">
+                    <button class="favorite-btn" data-car="Ferrari Portofino" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
                     <div class="box-info">
                         <p>2023</p>
                         <h4>Ferrari Portofino</h4>
@@ -297,10 +311,11 @@
                 </template>
             </div>
 
-            <div class="box reveal open-detail">
+            <div class="box reveal open-detail" data-category="coupe">
                 <span class="badge">Disponible</span>
                 <div class="box-img">
                     <img src="Assets/img/cars911.pnj.webp" alt="Porsche 911 Turbo S" loading="lazy">
+                    <button class="favorite-btn" data-car="Porsche 911 Turbo S" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
                     <div class="box-info">
                         <p>2023</p>
                         <h4>Porsche 911 Turbo S</h4>
@@ -327,6 +342,111 @@
                         <img src="Assets/img/cars911.pnj.webp" alt="Porsche 911 Turbo S - vue extérieure">
                         <img src="Assets/img/porsche-911-sport-classic-14.jpeg" alt="Porsche 911 Turbo S - vue arrière">
                         <img src="Assets/img/porsche-interior.jpeg" alt="Porsche 911 Turbo S - intérieur, compteur Turbo S">
+                    </div>
+                </template>
+            </div>
+
+            <div class="box reveal open-detail" data-category="limousine">
+                <span class="badge">Disponible</span>
+                <div class="box-img">
+                    <img src="Assets/img/rolls-main.jpeg" alt="Rolls-Royce Ghost" loading="lazy">
+                    <button class="favorite-btn" data-car="Rolls-Royce Ghost" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
+                    <div class="box-info">
+                        <p>2023</p>
+                        <h4>Rolls-Royce Ghost</h4>
+                        <div class="specs">
+                            <span><i class='bx bx-cog'></i> Automatique</span>
+                            <span><i class='bx bx-group'></i> 5 places</span>
+                            <span><i class='bx bx-tachometer'></i> 571 ch</span>
+                        </div>
+                        <div class="box-footer">
+                            <h5>2800€<span>/mois</span></h5>
+                            <a href="#" class="btn btn-book" data-car="Rolls-Royce Ghost" data-price="2800€/mois">Louer maintenant</a>
+                        </div>
+                    </div>
+                </div>
+                <template class="car-detail-data">
+                    <p class="full-description">Le summum du luxe automobile. La Rolls-Royce Ghost offre une expérience de conduite feutrée et silencieuse, où chaque détail incarne l'excellence artisanale britannique.</p>
+                    <ul class="features">
+                        <li><i class='bx bx-check'></i> GPS &amp; navigation connectée</li>
+                        <li><i class='bx bx-check'></i> Bluetooth &amp; Apple CarPlay</li>
+                        <li><i class='bx bx-check'></i> Caméra de recul HD</li>
+                        <li><i class='bx bx-check'></i> Sièges cuir chauffants</li>
+                    </ul>
+                    <div class="gallery-imgs">
+                        <img src="Assets/img/rolls-main.jpeg" alt="Rolls-Royce Ghost - vue extérieure">
+                        <img src="Assets/img/rolls-side.jpeg" alt="Rolls-Royce Ghost - vue de profil">
+                        <img src="Assets/img/rolls-interior.jpeg" alt="Rolls-Royce Ghost - intérieur">
+                    </div>
+                </template>
+            </div>
+
+            <div class="box reveal open-detail" data-category="coupe">
+                <span class="badge">Disponible</span>
+                <div class="box-img">
+                    <img src="Assets/img/bentley-main.jpeg" alt="Bentley Continental GT" loading="lazy">
+                    <button class="favorite-btn" data-car="Bentley Continental GT" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
+                    <div class="box-info">
+                        <p>2023</p>
+                        <h4>Bentley Continental GT</h4>
+                        <div class="specs">
+                            <span><i class='bx bx-cog'></i> Automatique</span>
+                            <span><i class='bx bx-group'></i> 4 places</span>
+                            <span><i class='bx bx-tachometer'></i> 650 ch</span>
+                        </div>
+                        <div class="box-footer">
+                            <h5>2300€<span>/mois</span></h5>
+                            <a href="#" class="btn btn-book" data-car="Bentley Continental GT" data-price="2300€/mois">Louer maintenant</a>
+                        </div>
+                    </div>
+                </div>
+                <template class="car-detail-data">
+                    <p class="full-description">Grand tourisme britannique par excellence, la Continental GT marie puissance W12 et raffinement absolu, pour des trajets aussi rapides que confortables.</p>
+                    <ul class="features">
+                        <li><i class='bx bx-check'></i> GPS &amp; navigation connectée</li>
+                        <li><i class='bx bx-check'></i> Bluetooth &amp; Apple CarPlay</li>
+                        <li><i class='bx bx-check'></i> Caméra de recul HD</li>
+                        <li><i class='bx bx-check'></i> Sièges cuir chauffants</li>
+                    </ul>
+                    <div class="gallery-imgs">
+                        <img src="Assets/img/bentley-main.jpeg" alt="Bentley Continental GT - vue extérieure">
+                        <img src="Assets/img/bentley-side.jpeg" alt="Bentley Continental GT - vue de profil">
+                        <img src="Assets/img/bentley-interior.jpeg" alt="Bentley Continental GT - intérieur">
+                    </div>
+                </template>
+            </div>
+
+            <div class="box reveal open-detail" data-category="suv">
+                <span class="badge">Disponible</span>
+                <div class="box-img">
+                    <img src="Assets/img/urus-main.jpeg" alt="Lamborghini Urus" loading="lazy">
+                    <button class="favorite-btn" data-car="Lamborghini Urus" aria-label="Ajouter aux favoris"><i class='bx bx-heart'></i></button>
+                    <div class="box-info">
+                        <p>2023</p>
+                        <h4>Lamborghini Urus</h4>
+                        <div class="specs">
+                            <span><i class='bx bx-cog'></i> Automatique</span>
+                            <span><i class='bx bx-group'></i> 5 places</span>
+                            <span><i class='bx bx-tachometer'></i> 657 ch</span>
+                        </div>
+                        <div class="box-footer">
+                            <h5>2400€<span>/mois</span></h5>
+                            <a href="#" class="btn btn-book" data-car="Lamborghini Urus" data-price="2400€/mois">Louer maintenant</a>
+                        </div>
+                    </div>
+                </div>
+                <template class="car-detail-data">
+                    <p class="full-description">Le Super SUV italien. L'Urus combine les performances d'une supercar avec la polyvalence d'un SUV, pour une expérience de conduite explosive en toutes circonstances.</p>
+                    <ul class="features">
+                        <li><i class='bx bx-check'></i> GPS &amp; navigation connectée</li>
+                        <li><i class='bx bx-check'></i> Bluetooth &amp; Apple CarPlay</li>
+                        <li><i class='bx bx-check'></i> Caméra de recul HD</li>
+                        <li><i class='bx bx-check'></i> Sièges cuir chauffants</li>
+                    </ul>
+                    <div class="gallery-imgs">
+                        <img src="Assets/img/urus-main.jpeg" alt="Lamborghini Urus - vue extérieure">
+                        <img src="Assets/img/urus-side.jpeg" alt="Lamborghini Urus - vue de profil de nuit">
+                        <img src="Assets/img/urus-interior.jpeg" alt="Lamborghini Urus - intérieur">
                     </div>
                 </template>
             </div>
@@ -542,6 +662,9 @@
             <div class="detail-gallery">
                 <div class="detail-main-img">
                     <img src="" alt="" id="detailMainImg">
+                    <button class="gallery-nav prev" id="galleryPrev" aria-label="Photo précédente"><i class='bx bx-chevron-left'></i></button>
+                    <button class="gallery-nav next" id="galleryNext" aria-label="Photo suivante"><i class='bx bx-chevron-right'></i></button>
+                    <span class="gallery-counter" id="galleryCounter"></span>
                 </div>
                 <div class="detail-thumbs" id="detailThumbs"></div>
             </div>

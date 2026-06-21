@@ -1,3 +1,25 @@
+/* ============ Modal focus trap ============ */
+
+function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const openModal = document.querySelector('.modal-overlay.show, .detail-overlay.show');
+    if (!openModal) return;
+    const focusable = openModal.querySelectorAll('a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+    }
+}
+
+document.addEventListener('keydown', trapFocus);
+
 /* ============ Preloader ============ */
 
 window.addEventListener('load', () => {
@@ -151,6 +173,10 @@ document.addEventListener('keydown', (e) => {
         closeModal();
         closeDetail();
     }
+    if (productDetail.classList.contains('show')) {
+        if (e.key === 'ArrowLeft') showImage(galleryIndex - 1);
+        if (e.key === 'ArrowRight') showImage(galleryIndex + 1);
+    }
 });
 
 bookingForm.addEventListener('submit', (e) => {
@@ -174,9 +200,21 @@ const detailFeatures = document.querySelector('.detail-features');
 const detailPrice = document.querySelector('.detail-price');
 const detailBookBtn = document.querySelector('.detail-book');
 
-function setMainImage(imgEl) {
-    detailMainImg.src = imgEl.src;
-    detailMainImg.alt = imgEl.alt;
+const galleryPrev = document.querySelector('#galleryPrev');
+const galleryNext = document.querySelector('#galleryNext');
+const galleryCounter = document.querySelector('#galleryCounter');
+
+let galleryImages = [];
+let galleryIndex = 0;
+
+function showImage(index) {
+    if (!galleryImages.length) return;
+    galleryIndex = (index + galleryImages.length) % galleryImages.length;
+    const img = galleryImages[galleryIndex];
+    detailMainImg.src = img.src;
+    detailMainImg.alt = img.alt;
+    galleryCounter.textContent = `${galleryIndex + 1} / ${galleryImages.length}`;
+    detailThumbs.querySelectorAll('.thumb').forEach((t, i) => t.classList.toggle('active', i === galleryIndex));
 }
 
 function openDetail(card) {
@@ -192,25 +230,34 @@ function openDetail(card) {
     detailBookBtn.dataset.car = btn.dataset.car;
     detailBookBtn.dataset.price = btn.dataset.price;
 
-    const images = data.querySelectorAll('.gallery-imgs img');
+    galleryImages = Array.from(data.querySelectorAll('.gallery-imgs img'));
     detailThumbs.innerHTML = '';
-    images.forEach((img, i) => {
-        if (i === 0) setMainImage(img);
+    galleryImages.forEach((img, i) => {
         const thumb = document.createElement('div');
-        thumb.className = 'thumb' + (i === 0 ? ' active' : '');
-        const thumbImg = img.cloneNode();
-        thumb.appendChild(thumbImg);
-        thumb.addEventListener('click', () => {
-            setMainImage(img);
-            detailThumbs.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
-            thumb.classList.add('active');
-        });
+        thumb.className = 'thumb';
+        thumb.appendChild(img.cloneNode());
+        thumb.addEventListener('click', () => showImage(i));
         detailThumbs.appendChild(thumb);
     });
+    showImage(0);
 
     productDetail.classList.add('show');
     document.body.classList.add('no-scroll');
+    detailClose.focus();
 }
+
+galleryPrev.addEventListener('click', () => showImage(galleryIndex - 1));
+galleryNext.addEventListener('click', () => showImage(galleryIndex + 1));
+
+let touchStartX = null;
+const mainImgBox = document.querySelector('.detail-main-img');
+mainImgBox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+mainImgBox.addEventListener('touchend', (e) => {
+    if (touchStartX === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(delta) > 40) showImage(galleryIndex + (delta < 0 ? 1 : -1));
+    touchStartX = null;
+});
 
 function closeDetail() {
     productDetail.classList.remove('show');
@@ -273,5 +320,58 @@ document.querySelectorAll('.box.open-detail').forEach(card => {
 
     card.addEventListener('mouseleave', () => {
         img.style.transform = '';
+    });
+});
+
+/* ============ Fleet filters ============ */
+
+const filterChips = document.querySelectorAll('.filter-chip');
+const fleetCards = document.querySelectorAll('.services-container .box');
+
+filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        fleetCards.forEach(card => {
+            const match = filter === 'all' || card.dataset.category === filter;
+            card.classList.toggle('filtered-out', !match);
+        });
+    });
+});
+
+/* ============ Favorites ============ */
+
+const FAVORITES_KEY = 'hatts-favorites';
+const getFavorites = () => JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+
+function setFavoriteState(btn, isActive) {
+    btn.classList.toggle('active', isActive);
+    const icon = btn.querySelector('.bx');
+    icon.classList.toggle('bx-heart', !isActive);
+    icon.classList.toggle('bxs-heart', isActive);
+}
+
+const savedFavorites = getFavorites();
+document.querySelectorAll('.favorite-btn').forEach(btn => {
+    setFavoriteState(btn, savedFavorites.includes(btn.dataset.car));
+
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const favorites = getFavorites();
+        const car = btn.dataset.car;
+        const index = favorites.indexOf(car);
+        const isNowActive = index === -1;
+
+        if (isNowActive) {
+            favorites.push(car);
+            showToast(`${car} ajouté à vos favoris`);
+        } else {
+            favorites.splice(index, 1);
+            showToast(`${car} retiré de vos favoris`);
+        }
+
+        localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
+        setFavoriteState(btn, isNowActive);
     });
 });
